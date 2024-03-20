@@ -1,0 +1,51 @@
+.schwifty{
+    font-family: "Get Schwifty Regular";
+}
+
+.galindo{
+    font-family: 'Galindo', display;
+}
+.header-bg{
+    background-image: url('/images/header-bg.jpg');
+    background-size: cover;
+}
+
+.main-bg{
+    background-image: url('/images/main-bg-recut.webp');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.main-galaxy-bg{
+    background-image: url('/images/main-galaxy-bg.webp');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.footer{
+    background-color: #262626 ;
+    color: white;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  font-family: "Get schwifty Regular";
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+  border: none;
+  box-shadow: 0 0.2em 1em 0.1em rgba(102,247,113,1);
+  border-radius: 2em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.nav-button:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em rgba(102,247,113,1);
+}
+
+.nav-button:active {
+  box-shadow: 0 0.3em 1em -0.5em rgba(102,247,113,1);
+}
