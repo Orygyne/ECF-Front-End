@@ -16,10 +16,10 @@
     background-repeat: no-repeat;
 }
 
-.main-galaxy-bg{
-    background-image: url('/images/main-galaxy-bg.webp');
-    background-size:cover;
-    background-repeat: no-repeat;
+.main-galaxy-bg {
+  background-image: url('/images/main-galaxy-bg.webp');
+  background-size: cover;
+  background-repeat: repeat-y; /* Répétition verticale uniquement */
 }
 
 .footer{
@@ -31,7 +31,6 @@
 
 .nav-button {
   display: flex;
-  align-items: center;
   font-family: "Get schwifty Regular";
   padding: 0.7em 1.4em 0.7em 1.1em;
   background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
@@ -96,9 +95,8 @@
   border-radius: 1rem;
   background: linear-gradient(0deg, rgb(212, 226, 219) 0%, rgb(28, 207, 37) 80%);
   background-color: transparent;
-  width: 25rem !important;
-  height: 35rem !important;
-
+  width: 20rem !important;
+  height: 32rem !important;
 }
 
 /* CSS DE LA CARTE POPUP */
@@ -109,7 +107,7 @@
   display: none;
   background-color: transparent;
   width: 50rem;
-  height: 50rem;
+  height: 36rem;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid green;
@@ -123,6 +121,10 @@
 
 .popup-card.open {
   display: block !important;
+}
+
+.popup-card.hidden {
+  display: none;
 }
 
 /* BOUTON EXIT DE LA CARTE POPUP */

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=galindo:400" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com" defer></script>
-    <script type="module" src="/script.js" defer></script>
+    <script type="module" src="/scriptCharacters.js" defer></script>
     <title>Rick & Morty Randomizer : Characters</title>
 </head>
 <body>
@@ -21,14 +21,21 @@
                 <h1 class="schwifty text-6xl">Characters</h1>
             </div>
         </div>
-    </header>
-    <main class="main-galaxy-bg w-full h-[60rem]">
-        <nav class="flex">
+        <nav class="flex main-galaxy-bg justify-center ">
             <a href="index.html"><button class="nav-button text-4xl m-10" role="button">Home</button></a>
             <a href="locations.html"><button class="nav-button text-4xl m-10" role="button">Locations</button></a>
             <a href="episodes.html"><button class="nav-button text-4xl m-10" role="button">Episodes</button></a>
+            <button class="nav-button text-4xl m-10 whitespace-nowrap" id="newList">New list</button>
+            <select class="nav-button text-3xl m-10" name="Status" id="statusSelection">
+                <option value="Alive">Alive</option>
+                <option value="Dead">Dead</option>
+                <option value="unknown">Unknown</option>
+            </select>
         </nav>
-        <section class="cardContainer flex flex-wrap">
+    </header>
+
+    <main class="main-galaxy-bg w-full">
+        <section class="cardContainer flex flex-wrap main-galaxy-bg py-5 justify-center">
 
         </section>
     </main>
