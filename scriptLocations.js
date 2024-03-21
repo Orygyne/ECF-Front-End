@@ -47,6 +47,10 @@ async function fetchLocationsAndPopulateSelect() {
             const optionElement = document.createElement('option');
             optionElement.value = location.name;
             optionElement.textContent = location.name;
+
+            // Ajouter la classe à l'option
+            optionElement.classList.add('option-class');
+
             selectElement.appendChild(optionElement);
         } else {
             // Si aucun personnage n'existe, ajouter des éléments h2 et p à la place de l'option

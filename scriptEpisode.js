@@ -73,6 +73,11 @@ fetchEpisodes()
                 const optionElement = document.createElement('option');
                 optionElement.value = episode.id;
                 optionElement.textContent = `${episode.id} - ${episode.name}`;
+
+                // Ajouter la classe à l'option
+                optionElement.classList.add('option-class');
+
+
                 selectElement.appendChild(optionElement);
             });
         }

@@ -1,3 +1,50 @@
+/* Réinitialisation CSS */
+
+/* Remise à zéro de la marge et du rembourrage pour tous les éléments */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Réinitialisation de la typographie */
+html {
+  font-size: 16px; /* Définir une taille de police de base */
+  font-family: Arial, sans-serif; /* Utiliser une police de caractères générique */
+}
+
+/* Réinitialisation des listes */
+ul, ol {
+  list-style: none;
+}
+
+/* Réinitialisation des liens */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Réinitialisation des boutons */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Réinitialisation des styles d'éléments de formulaire */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Réinitialisation des styles de tableau */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
 .schwifty{
     font-family: "Get Schwifty Regular";
 }
@@ -49,6 +96,16 @@
 
 .nav-button:active {
   box-shadow: 0 0.3em 1em -0.5em rgba(102,247,113,1);
+}
+
+select {
+  position: static; /* Réinitialisation de la position */
+  top: auto; /* Réinitialisation de top */
+  bottom: auto; /* Réinitialisation de bottom */
+}
+
+.option-class{
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* BOUTONS DES CARTES */
