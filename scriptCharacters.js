@@ -122,7 +122,7 @@ function generateCards(charactersArray) {
                             <p>Species : ${character.species}</p>
                             <p>Episodes : ${getEpisodeList(character.episode)}</p>
                         </div>
-                        <div class="flex justify-center items-center h-auto my-5">
+                        <div class="flex justify-center items-center my-5">
                             <button class="popup-button close-button">Close</button>
                         </div>
                     </div>
@@ -200,3 +200,22 @@ function generateNewRandomCards() {
 // Ajout d'un gestionnaire d'événements au bouton avec l'ID "newList"
 const newListButton = document.getElementById('newList');
 newListButton.addEventListener('click', generateNewRandomCards);
+
+const links = document.querySelectorAll('nav li');
+const icons = document.getElementById('icons')
+const close = document.getElementById('close')
+const nav = document.querySelector('nav')
+
+icons.addEventListener("click", () =>{
+    nav.classList.add("activeNav")
+})
+
+close.addEventListener("click", () =>{
+    nav.classList.remove("activeNav")
+})
+
+links.forEach((link) => {
+    link.addEventListener('click', () => {
+        nav.classList.remove("active")
+    });
+});

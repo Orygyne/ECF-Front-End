@@ -43,7 +43,38 @@ table {
   border-spacing: 0;
 }
 
+/* MENU BURGER */
 
+li {
+  list-style: none;
+}
+
+
+a:hover{
+  background: grey;
+}
+
+nav ul{
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.nav{
+  background: transparent;
+  display: fixed;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+  font-size: calc(0.5rem + 1.5vw);
+}
+
+.icons{
+  cursor: pointer;
+  display: none;
+}
+
+/* STYLES GENERAUX */
 
 .schwifty{
     font-family: "Get Schwifty Regular";
@@ -95,6 +126,29 @@ table {
 }
 
 .nav-button:active {
+  box-shadow: 0 0.3em 1em -0.5em rgba(102,247,113,1);
+}
+
+
+.newList-button {
+  display: flex;
+  font-family: "Get schwifty Regular";
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+  border: none;
+  box-shadow: 0 0.2em 1em 0.1em rgba(102,247,113,1);
+  border-radius: 2em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.newList-button:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em rgba(102,247,113,1);
+}
+
+.newList-button:active {
   box-shadow: 0 0.3em 1em -0.5em rgba(102,247,113,1);
 }
 
@@ -208,4 +262,78 @@ select {
 
 .popup-button:active {
   box-shadow: 0 0.3em 1em -0.5em rgba(102, 247, 113, 1);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width : 800px) {
+  #icons {
+    display: flex;
+    justify-content: end;
+    font-size: 2rem;
+    color:black; /* Couleur du texte */
+    -webkit-text-stroke-width: 0.5px; /* Largeur du contour */
+    -webkit-text-stroke-color: #fff; /* Couleur du contour */
+  
+  }
+
+  #close {
+    display: flex;
+    justify-content: end;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+  #icons::before {
+    content: "\2630";
+  }
+
+  .activeNav #close:before {
+    content: "\2716";
+  }
+
+  nav ul{
+    position: fixed;
+    left: -100%;
+    top: 5%;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    text-align: center;
+    transition: 0.25s;
+  }
+
+  nav li {
+    padding: 3px 0;
+  }
+
+  nav li:hover {
+    background: rgb(160, 157, 157);
+
+  }
+
+  nav.activeNav ul {
+    left : 0;
+  }
+
+  .nav{
+    position: fixed;
+    top:20px;
+    left: 20px;
+    background: none;
+  }
+
+  .nav-button {
+    font-family: "Get schwifty Regular";
+    background: none;
+    box-shadow: none;
+    padding: 0.7em 1.4em 0.7em 1.1em;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .popup-card {
+    width: 22rem !important;
+    height: 40rem !important;
+  }
 }

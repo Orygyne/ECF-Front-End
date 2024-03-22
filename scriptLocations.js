@@ -156,8 +156,20 @@ async function generateCardsForLocation(locationName) {
                 </div>`;
 
         cardContainer.appendChild(card);
+        // Ajout des écouteurs d'événements pour les boutons .card-button et .popup-button
+        const cardButton = card.querySelector('.card-button');
+        cardButton.addEventListener('click', function() {
+            openPopupOnce(character.id);
+        });
+
+        const closeButton = card.querySelector('.close-button');
+        closeButton.addEventListener('click', function() {
+            closePopup(character.id);
+        });
     });
-}
+    // Écoute des événements de clic sur le document pour fermer les modals
+    document.addEventListener('click', closePopupOnClickOutside);
+};
 
 document.getElementById('locationSelection').addEventListener('change', async function() {
     // Récupérer la valeur sélectionnée
@@ -170,4 +182,23 @@ document.getElementById('locationSelection').addEventListener('change', async fu
 // Appel initial pour afficher tous les personnages
 fetchLocationsAndPopulateSelect().catch(error => {
     console.error('Une erreur s\'est produite :', error);
+});
+
+const links = document.querySelectorAll('nav li');
+const icons = document.getElementById('icons')
+const close = document.getElementById('close')
+const nav = document.querySelector('nav')
+
+icons.addEventListener("click", () =>{
+    nav.classList.add("activeNav")
+})
+
+close.addEventListener("click", () =>{
+    nav.classList.remove("activeNav")
+})
+
+links.forEach((link) => {
+    link.addEventListener('click', () => {
+        nav.classList.remove("active")
+    });
 });

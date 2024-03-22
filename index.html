@@ -8,42 +8,43 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=galindo:400" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="scriptIndex.js" defer></script>
     <title>Rick & Morty Randomizer</title>
 </head>
 <body>
-    <header>
-        <div class="header-bg w-full h-auto flex ">
-            <div class="w-48 h-auto">
-                <img class="size-full" src="/images/header-lg.webp" title="Les aventures de Rick et Morty" alt="Logo du site représentant Rick et Morty">
+    <header class="header-bg">
+        <div class=" w-full h-auto flex flex-col items-center lg:flex-row">
+            <div class="w-48 xl:w-64 sm:w-48">
+                <img src="/images/header-lg.webp" title="Les aventures de Rick et Morty" alt="Logo du site représentant Rick et Morty">
             </div>
             <div class="flex w-full justify-center items-center">
-                <h1 class="schwifty text-6xl">Rick and Morty Randomizer</h1>
+                <h1 class="schwifty text-3xl sm:whitespace-nowrap sm:text-4xl  lg:text-6xl pb-5">Rick and Morty Randomizer</h1>
             </div>
         </div>
     </header>
-    <main class="main-bg w-full h-[60rem]">
-        <nav class="flex">
-            <a href="characters.html"><button class="nav-button text-4xl m-10" role="button">Characters</button></a>
-            <a href="locations.html"><button class="nav-button text-4xl m-10" role="button">Locations</button></a>
-            <a href="episodes.html"><button class="nav-button text-4xl m-10" role="button">Episodes</button></a>
-        </nav>
-        <div class="w-full h-[49rem] flex">
-            <div class=" ml-[20rem] mr-[35rem] flex">
-                <div class="w-96 items-center flex">
-                    <p class="text-white text-4xl pb-20 galindo">Come discover...</p>
-                </div>
+    <nav class="flex nav w-full lg:justify-center main-galaxy-bg">
+        <div id="icons"></div>
+        <ul class="gap-10">
+            <li id="close"></li>
+            <li><a href="characters.html"><button class="nav-button text-2xl lg:text-4xl" role="button">Characters</button></a></li>
+            <li><a href="locations.html"><button class="nav-button text-2xl lg:text-4xl" role="button">Locations</button></a></li>
+            <li><a href="episodes.html"><button class="nav-button text-2xl lg:text-4xl" role="button">Episodes</button></a></li>
+        </ul>
+    </nav>
+    <main class="main-bg min-h-screen pt-24">
+        <div class="flex flex-col">
+            <div class="justify-start flex  galindo text-white sm:pl-56">
+                Come discover...
             </div>
-            <div class="text-center">
-                <div class="my-5 mt-15 flex">
-                    <p class="text-white text-5xl galindo">The crazy universe of</p>
-                </div>
-                <div class="">
-                    <p class="schwifty text-[#88F23D] text-7xl">Rick and Morty</p>
-                </div>
+            <div class="flex justify-end galindo text-white sm:pr-56">
+                The crazy universe of
+            </div>
+            <div class="flex justify-end schwifty text-[#88F23D] sm:pr-56">
+                Rick and Morty
             </div>
         </div>
     </main>
-    <footer class="footer px-3 py-5 text-2xl">
+    <footer class="footer px-3 py-5 sm:text-2xl">
         <div class="py-2">
             <p>ECF FRONT END</p>
         </div>

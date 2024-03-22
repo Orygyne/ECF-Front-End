@@ -9,31 +9,34 @@
     <link href="https://fonts.bunny.net/css?family=galindo:400" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com" defer></script>
     <script type="module" src="/scriptEpisode.js" defer></script>
-    <title>Rick & Morty Randomizer : locations</title>
+    <title>Rick & Morty Randomizer : Episodes</title>
 </head>
 <body>
-    <header>
-        <div class="header-bg w-full h-auto flex ">
-            <div class="w-48 h-auto">
-                <img class="size-full" src="/images/header-lg.webp" title="Les aventures de Rick et Morty" alt="Logo du site représentant Rick et Morty">
+    <header class="header-bg">
+        <div class=" w-full h-auto flex flex-col items-center lg:flex-row">
+            <div class="w-48 xl:w-64 sm:w-48">
+                <img src="/images/header-lg.webp" title="Les aventures de Rick et Morty" alt="Logo du site représentant Rick et Morty">
             </div>
             <div class="flex w-full justify-center items-center">
-                <h1 class="schwifty text-6xl">Locations</h1>
+                <h1 class="schwifty text-3xl sm:whitespace-nowrap sm:text-4xl  lg:text-6xl pb-5">Episodes</h1>
             </div>
-        </div>
     </header>
-    <nav class="flex flex-wrap justify-center main-galaxy-bg">
+    <div class="flex flex-wrap justify-center main-galaxy-bg">
+        <nav class="flex nav w-full lg:justify-center main-galaxy-bg">
+            <div id="icons"></div>
+            <ul class="gap-10">
+                <li id="close"></li>
+                <li><a href="index.html"><button class="nav-button text-2xl lg:text-4xl" role="button">Home</button></a></li>
+                <li><a href="characters.html"><button class="nav-button text-2xl lg:text-4xl" role="button">Characters</button></a></li>
+                <li><a href="episodes.html"><button class="nav-button text-2xl lg:text-4xl" role="button">Episodes</button></a></li>
+            </ul>
+        </nav>
         <div class="flex">
-            <a href="index.html"><button class="nav-button text-4xl m-10" role="button">Home</button></a>
-            <a href="characters.html"><button class="nav-button text-4xl m-10" role="button">Characters</button></a>
-            <a href="episodes.html"><button class="nav-button text-4xl m-10" role="button">Episodes</button></a>
-        </div>
-        <div class="flex">
-            <select class="nav-button text-3xl m-10" name="Episode" id="episodeSelection">
+            <select class="newList-button text-3xl m-10 w-80" name="Episode" id="episodeSelection">
 
             </select>
         </div>
-    </nav>
+    </div>
     <main class="main-galaxy-bg w-full min-h-screen">
         <section class="cardContainer flex flex-wrap main-galaxy-bg py-5 justify-center">
 
@@ -41,7 +44,7 @@
         
 
     </main>
-    <footer class="footer px-3 py-5 text-2xl">
+    <footer class="footer px-3 py-5 sm:text-2xl">
         <div class="py-2">
             <p>ECF FRONT END</p>
         </div>
