@@ -1,100 +1,105 @@
+// Function to fetch all episodes from the Rick and Morty API
 async function fetchEpisodes() {
     const baseUrl = 'https://rickandmortyapi.com/api/episode';
     let episodes = [];
     let nextPageUrl = baseUrl;
 
-    // Continuer à récupérer les épisodes jusqu'à ce qu'il n'y ait plus de page suivante
+    // Keep fetching episodes until there are no more next pages
     while (nextPageUrl) {
         const response = await fetch(nextPageUrl);
         const data = await response.json();
         episodes = episodes.concat(data.results);
-        nextPageUrl = data.info.next; // Met à jour l'URL de la page suivante
+        nextPageUrl = data.info.next; // Update the URL of the next page
     }
 
     return episodes;
 }
 
-// Appel de la fonction fetchEpisodes et affichage des résultats dans la console
+// Call the fetchEpisodes function and log the results to the console
 fetchEpisodes()
     .then(episodes => {
-        console.log('Liste complète des épisodes :', episodes);
+        console.log('Complete list of episodes:', episodes);
     })
     .catch(error => {
-        console.error('Une erreur s\'est produite lors de la récupération des épisodes :', error);
+        console.error('An error occurred while fetching episodes:', error);
     });
 
-    async function fetchAllCharacters() {
-        const baseUrl = 'https://rickandmortyapi.com/api/character';
-        let characters = [];
-        let nextPageUrl = baseUrl;
-    
-        // Continuer à récupérer les personnages jusqu'à ce qu'il n'y ait plus de page suivante
-        while (nextPageUrl) {
-            const response = await fetch(nextPageUrl);
-            const data = await response.json();
-            characters = characters.concat(data.results);
-            nextPageUrl = data.info.next; // Met à jour l'URL de la page suivante
-        }
-    
-        return characters;
+// Function to fetch all characters from the Rick and Morty API
+async function fetchAllCharacters() {
+    const baseUrl = 'https://rickandmortyapi.com/api/character';
+    let characters = [];
+    let nextPageUrl = baseUrl;
+
+    // Keep fetching characters until there are no more next pages
+    while (nextPageUrl) {
+        const response = await fetch(nextPageUrl);
+        const data = await response.json();
+        characters = characters.concat(data.results);
+        nextPageUrl = data.info.next; // Update the URL of the next page
     }
+
+    return characters;
+}
     
-    // Appel de la fonction fetchAllCharacters et affichage du nombre total de personnages dans la console
-    fetchAllCharacters()
-        .then(characters => {
-            console.log('Nombre total de personnages :', characters.length);
-        })
-        .catch(error => {
-            console.error('Une erreur s\'est produite lors de la récupération des personnages :', error);
-        });
+// Call the fetchAllCharacters function and log the total number of characters to the console
+fetchAllCharacters()
+    .then(characters => {
+        console.log('Total number of characters:', characters.length);
+    })
+    .catch(error => {
+        console.error('An error occurred while fetching characters:', error);
+    });
 
-        async function fetchAllEpisodes() {
-            const baseUrl = 'https://rickandmortyapi.com/api/episode';
-            let episodes = [];
-            let nextPageUrl = baseUrl;
-        
-            // Continuer à récupérer les épisodes jusqu'à ce qu'il n'y ait plus de page suivante
-            while (nextPageUrl) {
-                const response = await fetch(nextPageUrl);
-                const data = await response.json();
-                episodes = episodes.concat(data.results);
-                nextPageUrl = data.info.next; // Met à jour l'URL de la page suivante
-            }
-        
-            return episodes;
-        }
-        
-        async function populateEpisodeSelect() {
-            const episodes = await fetchAllEpisodes();
-            const selectElement = document.getElementById('episodeSelection');
-        
-            // Parcourir chaque épisode et ajouter une option avec son ID et son nom à la balise select
-            episodes.forEach(episode => {
-                const optionElement = document.createElement('option');
-                optionElement.value = episode.id;
-                optionElement.textContent = `${episode.id} - ${episode.name}`;
+// Function to fetch all episodes from the Rick and Morty API
+async function fetchAllEpisodes() {
+    const baseUrl = 'https://rickandmortyapi.com/api/episode';
+    let episodes = [];
+    let nextPageUrl = baseUrl;
 
-                // Ajouter la classe à l'option
-                optionElement.classList.add('option-class');
+    // Keep fetching episodes until there are no more next pages
+    while (nextPageUrl) {
+        const response = await fetch(nextPageUrl);
+        const data = await response.json();
+        episodes = episodes.concat(data.results);
+        nextPageUrl = data.info.next; // Update the URL of the next page
+    }
 
+    return episodes;
+}
 
-                selectElement.appendChild(optionElement);
-            });
-        }
+// Function to populate the episode selection dropdown with all episodes
+async function populateEpisodeSelect() {
+    const episodes = await fetchAllEpisodes();
+    const selectElement = document.getElementById('episodeSelection');
+
+    // Loop through each episode and add an option with its ID and name to the select element
+    episodes.forEach(episode => {
+        const optionElement = document.createElement('option');
+        optionElement.value = episode.id;
+        optionElement.textContent = `${episode.id} - ${episode.name}`;
+
+        // Add class to the option
+        optionElement.classList.add('option-class');
+
+        selectElement.appendChild(optionElement);
+    });
+}
         
-// Appel de la fonction populateEpisodeSelect pour peupler la balise select avec les épisodes
+// Call the populateEpisodeSelect function to populate the select element with episodes
 populateEpisodeSelect()
 .catch(error => {
-    console.error('Une erreur s\'est produite lors de la récupération des épisodes :', error);
+    console.error('An error occurred while fetching episodes:', error);
 });
 
+// Function to extract episode numbers from episode URLs and format them as a list
 function getEpisodeList(episodeURLs) {
     return episodeURLs.map(url => {
-        const episodeNumber = url.split('/').pop(); // Obtient le numéro de l'épisode à partir de l'URL
+        const episodeNumber = url.split('/').pop(); // Extract the episode number from the URL
         return `${episodeNumber}`;
     }).join(', ');
 };
 
+// Function to open the popup for a character card only once
 function openPopupOnce(characterId) {
     const popup = document.querySelector(`.popup-card.character-card-${characterId}`);
     if (!popup.classList.contains("open")) {
@@ -102,17 +107,19 @@ function openPopupOnce(characterId) {
     }
 }
 
+// Function to close the popup for a character card
 function closePopup(characterId) {
     const popup = document.querySelector(`.popup-card.character-card-${characterId}`);
     popup.classList.remove("open");
 }
 
+// Function to close popups when clicked outside
 function closePopupOnClickOutside(event) {
     const popups = document.querySelectorAll('.popup-card');
     const cardButtons = document.querySelectorAll('.card-button');
     const closeButton = document.querySelectorAll('.close-button');
 
-    // Vérifie si l'élément cliqué est une carte personnalisée ou un bouton popup
+    // Check if the clicked element is a custom card or a popup button
     let isCardOrButton = false;
     cardButtons.forEach(button => {
         if (button.contains(event.target)) {
@@ -125,21 +132,26 @@ function closePopupOnClickOutside(event) {
         }
     });
 
+    // If the clicked element is neither a card nor a button, close all popups
     if (!isCardOrButton) {
         popups.forEach(popup => {
-            popup.classList.remove('open'); // Retire la classe 'open' pour fermer la modal
+            popup.classList.remove('open'); // Remove the 'open' class to close the modal
         });
     }
 }
 
+// Function to generate character cards dynamically
 function generateCards(charactersArray) {
     const cardContainer = document.querySelector(".cardContainer");
-    cardContainer.innerHTML = ''; // Effacer le contenu précédent du conteneur
+    cardContainer.innerHTML = ''; // Clear previous content from the container
 
+    // Loop through each character in the array to create a card for each
     charactersArray.forEach(character => {
+        // Create a new card element
         const card = document.createElement('div');
         card.className = 'flip-card';
 
+        // Populate the card HTML with character information
         card.innerHTML = `
             <div class="character-card-${character.id} flip-card-front">
                 <div class="flex justify-center">
@@ -174,7 +186,7 @@ function generateCards(charactersArray) {
 
         cardContainer.appendChild(card);
 
-        // Ajout des écouteurs d'événements pour les boutons .card-button et .popup-button
+        // Add event listeners for the card buttons and popup buttons
         const cardButton = card.querySelector('.card-button');
         cardButton.addEventListener('click', function() {
             openPopupOnce(character.id);
@@ -186,43 +198,48 @@ function generateCards(charactersArray) {
         });
     });
 
-    // Écoute des événements de clic sur le document pour fermer les modals
+    // Listen for click events on the document to close modals
     document.addEventListener('click', closePopupOnClickOutside);
 }
 
-// Ajouter un gestionnaire d'événements à la balise select
+// Add an event listener to the select element
 document.getElementById('episodeSelection').addEventListener('change', async function() {
-    // Récupérer la valeur de l'épisode sélectionné
+    // Get the value of the selected episode
     const selectedEpisodeId = this.value;
 
     try {
-        // Récupérer tous les épisodes
+        // Fetch all episodes
         const allEpisodes = await fetchEpisodes();
 
-        // Trouver l'épisode correspondant à l'ID sélectionné
+        // Find the episode corresponding to the selected ID
         const selectedEpisode = allEpisodes.find(episode => episode.id === parseInt(selectedEpisodeId));
 
         if (selectedEpisode) {
-            // Récupérer les personnages présents dans l'épisode sélectionné
+            // Fetch characters present in the selected episode
             const charactersInEpisode = await fetchCharactersInEpisode(selectedEpisode);
 
-            // Générer les cartes pour les personnages dans l'épisode sélectionné
+            // Generate cards for characters in the selected episode
             generateCards(charactersInEpisode);
         } else {
-            console.error('L\'épisode sélectionné n\'a pas été trouvé.');
+            console.error('Selected episode not found.');
         }
     } catch (error) {
-        console.error('Une erreur s\'est produite lors de la récupération des personnages de l\'épisode :', error);
+        console.error('An error occurred while fetching characters in episode:', error);
     }
 });
 
-// Fonction pour récupérer les personnages présents dans un épisode spécifique
+// Function to fetch characters present in a specific episode
 async function fetchCharactersInEpisode(episode) {
     const characters = [];
+    // Iterate over each character URL in the episode
     for (const characterUrl of episode.characters) {
+        // Fetch character data from the API
         const response = await fetch(characterUrl);
+        // Parse character data as JSON
         const character = await response.json();
+        // Add the character to the characters array
         characters.push(character);
     }
+    // Return the array of characters
     return characters;
 }

@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
+
+    <!-- Stylesheets -->
+
+    <link href="/CSS/style.css" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/485fe91395665a0ac50e25744ff3a19c?family=Get+Schwifty+Regular" rel="stylesheet" type="text/css"/>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=galindo:400" rel="stylesheet" />
+
+    <!-- Scripts -->
+
     <script src="https://cdn.tailwindcss.com" defer></script>
-    <script type="module" src="/scriptCharacters.js" defer></script>
+    <script type="module" src="/JAVASCRIPT/scriptCharacters.js" defer></script>
+
+    <!-- Title -->
+
     <title>Rick & Morty Randomizer : Characters</title>
 </head>
+
 <body>
+    <!-- Header section -->
+
     <header class="header-bg">
-        <div class=" w-full h-auto flex flex-col items-center lg:flex-row">
+        <div class="w-full h-auto flex flex-col items-center lg:flex-row">
+
             <div class="w-48 xl:w-64 sm:w-48">
+                <!-- Logo image -->
                 <img src="/images/header-lg.webp" title="Les aventures de Rick et Morty" alt="Logo du site représentant Rick et Morty">
             </div>
+
             <div class="flex w-full justify-center items-center">
+                <!-- Page title -->
                 <h1 class="schwifty text-3xl sm:whitespace-nowrap sm:text-4xl  lg:text-6xl pb-5">Characters</h1>
             </div>
+
         </div>
-        <div class=" main-galaxy-bg flex flex-col">
+
+        <!-- Navigation section -->
+
+        <div class="main-galaxy-bg flex flex-col">
             <nav class="flex nav w-full lg:justify-center main-galaxy-bg">
+                <!-- Burger menu icons -->
                 <div id="icons"></div>
+                <!-- Navigation links -->
                 <ul class="gap-10">
                     <li id="close"></li>
                     <li><a href="index.html"><button class="nav-button text-2xl lg:text-4xl" role="button">Home</button></a></li>
@@ -31,6 +54,9 @@
                     <li><a href="episodes.html"><button class="nav-button text-2xl lg:text-4xl" role="button">Episodes</button></a></li>
                 </ul>
             </nav>
+
+            <!-- Additional options for character list -->
+
             <div class="flex justify-center gap-10 p-5">
                 <button class="newList-button text-2xl lg:text-4xl whitespace-nowrap" id="newList">New list</button>
                 <select class="newList-button text-2xl lg:text-3xl" name="Status" id="statusSelection">
@@ -39,21 +65,31 @@
                     <option class="option-class" value="unknown">Unknown</option>
                 </select>
             </div>
-            
         </div>
     </header>
 
+    <!-- Main section for displaying character cards -->
+
     <main class="main-galaxy-bg w-full">
         <section class="cardContainer flex flex-wrap main-galaxy-bg py-5 justify-center">
-
         </section>
     </main>
+
+    <!-- Footer section -->
+
     <footer class="footer px-3 py-5 sm:text-2xl">
+        <!-- Footer content -->
         <div class="py-2">
             <p>ECF FRONT END</p>
         </div>
-        <div class="py-2">Api used from <a target="_blank" href="https://rickandmortyapi.com/">The Rick and Morty API</a></div>
-        <div class="py-2">Font made from <a target="_blank" href="https://www.onlinewebfonts.com/download/485fe91395665a0ac50e25744ff3a19c">Web Fonts</a>is licensed by CC BY 4.0</div>
+        <div class="py-2">
+            <!-- Link to the Rick and Morty API -->
+            Api used from <a target="_blank" href="https://rickandmortyapi.com/">The Rick and Morty API</a>
+        </div>
+        <div class="py-2">
+            <!-- Link to the Web Fonts website -->
+            Font made from <a target="_blank" href="https://www.onlinewebfonts.com/download/485fe91395665a0ac50e25744ff3a19c">Web Fonts</a>is licensed by CC BY 4.0
+        </div>
     </footer>
 </body>
 </html>
